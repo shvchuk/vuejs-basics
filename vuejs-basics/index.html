@@ -9,7 +9,8 @@
 <body>
 
     <div id="app">
-        <app-username v-bind:username="'Mikołaj'"></app-username>
+        <app-username v-bind:username="'Mikołaj'"
+                      v-on:usrclicked="userWasClicked($event)"></app-username>
         <app-username v-bind:username="'Magda'"></app-username>
         <p v-bind:class="{updated: name == 'John'}">{{ name }}</p>
         <p v-if="name == 'John'">Name updated!</p>
@@ -23,6 +24,7 @@
     </div>
     <div id="app2">
         <p>Second Vue instance</p>
+        <input type="text" v-model="message">
         <p>{{ message }}</p>
     </div>
 
