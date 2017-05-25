@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Vue JS</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <div id="app">
+        <app-username v-bind:username="'Mikołaj'"></app-username>
+        <app-username v-bind:username="'Magda'"></app-username>
+        <p v-bind:class="{updated: name == 'John'}">{{ name }}</p>
+        <p v-if="name == 'John'">Name updated!</p>
+        <button v-on:click="changeName">Change Name</button>
+        <button v-on:click="addElement">New Element</button>
+        <ul>
+            <li v-for="element in elements"
+                v-bind:id="'el' + element"
+                v-bind:style="{backgroundColor: getColor(element)}">Element {{ element }}</li>
+        </ul>
+    </div>
+    <div id="app2">
+        <p>Second Vue instance</p>
+        <p>{{ message }}</p>
+    </div>
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>
